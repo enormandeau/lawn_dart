@@ -31,8 +31,17 @@ sudo make install
 will attempt to install it to `/usr/local/bin`.
 
 # Usage
-Launch the executable without options (either `./lawn_dart` or simply
-`lawn_dart` if you installed it system wide) to see the usage help
+To get usage help, launch the executable without options, either
+
+```
+./lawn_dart
+```
+
+or, if you installed it system wide, simply
+
+```
+lawn_dart
+```
 
 # License
 This project is covered by the GPLv3 license. Read the LICENSE file for
