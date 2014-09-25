@@ -1,4 +1,4 @@
-TARGET = swoosh
+TARGET = lawn_dart
 LIBS = -lm
 CC = gcc
 CFLAGS = -Wall -g
@@ -18,6 +18,9 @@ HEADERS = $(wildcard *.h)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(OBJECTS) $(CFLAGS) $(LIBS) -o $@
+
+install:
+	cp $(TARGET) /usr/local/bin
 
 clean:
 	rm -f *.o

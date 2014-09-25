@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include <string.h>
 # include "physics.h"
 # include "motors.h"
 
@@ -26,6 +27,7 @@ void simulation( double mass, double diam, double cd, double avgimp,
     double max_acceleration = 0;
     double flight_time = 0;
     double apogee_time = 0;
+    int simulation_complete = 0;
 
     for (time=0; time<=duration; time+=delta_t) {
         if (counter % 30 == 0) print_banner();
@@ -39,12 +41,32 @@ void simulation( double mass, double diam, double cd, double avgimp,
         speed = new_speed(speed, acc, delta_t);
         if (speed > max_speed) max_speed = speed;
         altitude = altitude + delta_t * (old_speed + speed) / 2;
-        if (altitude > max_altitude) max_altitude = altitude;
-        if (counter > 1 && altitude <= 0)
+        if (altitude > max_altitude) {
+            max_altitude = altitude;
+            apogee_time = time;
+        }
+        flight_time = time;
+        if (counter > 1 && altitude <= 0) {
+            simulation_complete = 1;
             break;
+        }
     }
+    printf("+------------+-----------+--------------+-------------+\n");
 
-    flight_time = time;
     // TODO Print flight stats
+    if (simulation_complete) {
+        puts("The simulation completed");
+        puts("");
+    }
+    else {
+        puts(">>> WARNING! The simulation did not complete! <<<");
+        puts(">>> Increase the maximum simulation duration. <<<");
+        puts("");
+    }
+    printf("Flight duration: %6.2lf s\n", flight_time);
+    printf("Time at apogee: %6.2lf s\n", apogee_time);
+    printf("Max altitude: %6.2lf m\n", max_altitude);
+    printf("Max speed: %6.2lf m/s\n", max_speed);
+    printf("Max acceleration: %6.2lf G\n", max_acceleration / 9.81);
 }
 

@@ -8,10 +8,16 @@ happens to be my first C project. Its aims is primarily to be a fun project to
 canalize my C programming apprenticeship. I am, however, keen on getting
 feedback and ideas about how to turn this baby project into a useful program.
 
-This is developed with Linux and MacOSX users in mind, although it should
-work fine under Windows. I do not use Windows, however, so I cannot confirm it.
-If anybody would like to report on Windows usage or specificities about
-installation, I will be glad to add the information in this manual.
+**Lawn Dart** is developed with Linux and MacOSX users in mind, although it
+should work fine under Windows. I do not use Windows, however, so I cannot
+confirm it. If anybody would like to report on Windows usage or specificities
+about installation, I will be glad to add the information in this manual.
+
+# TODO
+- Incorporate more realistic drag equation
+- Calculate gravity as a function of altitude
+- Use real motor data (stored in `/data/motors`)
+- Parse command line arguments with parameters
 
 # Installing
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
