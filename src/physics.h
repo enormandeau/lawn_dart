@@ -5,7 +5,7 @@ double new_speed(double initial_speed, double acceleration, double delta_t);
 double acceleration(double force, double mass, double altitude);
 
 // D = f(diameter, CD, speed)
-double drag(double speed, double diameter, double cd);
+double drag(double cd, double rho, double speed, double surface);
 
 // G = f(altitude)
 double gravity(double altitude);
