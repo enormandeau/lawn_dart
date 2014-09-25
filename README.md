@@ -29,13 +29,11 @@ make
 ```
 
 to compile the program. The `lawn_dart` executable will be
-created.
+created. To install it to `/usr/local/bin`, run:
 
 ```
 sudo make install
 ```
-
-will attempt to install it to `/usr/local/bin`.
 
 # Usage
 To get usage help, launch the executable without options, either
