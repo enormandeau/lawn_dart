@@ -15,9 +15,10 @@ about installation, I will be glad to add the information in this manual.
 
 # TODO
 - Incorporate more realistic drag equation
-- Calculate gravity as a function of altitude
-- Use real motor data (stored in `/data/motors`)
 - Parse command line arguments with parameters
+- Use real motor data (stored in `/data/motors`)
+- Calculate gravity as a function of altitude
+- Output data to a .csv file
 
 # Installing
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
