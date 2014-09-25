@@ -15,8 +15,20 @@ installation, I will be glad to add the information in this manual.
 
 # Installing
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
-simply run `make` to compile the program. The `lawn_dart` executable will be
-created. `sudo make install` will attempt to install it to `/usr/local/bin`.
+simply run:
+
+```
+make
+```
+
+to compile the program. The `lawn_dart` executable will be
+created.
+
+```
+sudo make install
+```
+
+will attempt to install it to `/usr/local/bin`.
 
 # Usage
 Launch the executable without options (either `./lawn_dart` or simply
