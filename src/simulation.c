@@ -3,11 +3,9 @@
 # include "physics.h"
 # include "motors.h"
 
-void simulation( double mass, double diam, double cd,
-        double wind) {
+void simulation(double mass, double diam, double cd, double wind, double dt) {
 
     long int counter = 0;
-    double duration = 99999;
     double time;
     double acc;
     double grav;
@@ -15,13 +13,13 @@ void simulation( double mass, double diam, double cd,
     double total_acceleration;
     double impulse;
     int direction = 1;
-    double rho = 1.225;
-    double radius = diam / 2;
-    double surface = 3.14159 * radius * radius / 1000000;
+    double rho = 1.225; // kg/m³
+    double radius = diam / 2.0;
+    double surface = 3.14159 * radius * radius;
     double altitude = 0;
     double speed = 0;
-    double old_speed = speed;
-    double delta_t = 0.01;
+    double old_speed = 0;
+    double delta_t = dt;
 
     void print_banner(void) {
         //printf("+------------+-----------+--------------+-------------+\n");
@@ -41,35 +39,38 @@ void simulation( double mass, double diam, double cd,
     int burnout_reached = 0;
     int simulation_complete = 0;
 
-    for (time=0; time<=duration; time+=delta_t) {
+    for (time=0; ; time+=delta_t) {
         if (counter % (int) (1 / delta_t) == 0) {
-            print_banner();
+            ;
+            //print_banner();
         }
 
         counter++;
 
-        impulse = thrust(motor_b6, time, delta_t);
+        impulse = thrust(motor_c6, time, delta_t);
         acc = acceleration(impulse, mass, altitude);
         grav = gravity(altitude);
-        dra = drag(cd, rho, speed, surface);
-
-        if (acc < 0 && !burnout_reached) {
-            burnout_time = time;
-            burnout_reached = 1;
-        }
+        dra = drag(cd, rho, speed, surface) / mass;
 
         if (speed < 0) {
             direction = -1;
         }
 
         total_acceleration = acc - grav - direction * dra;
+        //printf("Acc: %6.2lf, Grav: %6.2lf, Drag: %6.2lf\n",
+        //        acc, grav, direction * dra);
+
+        if (total_acceleration < 0 && !burnout_reached) {
+            burnout_time = time;
+            burnout_reached = 1;
+        }
 
         if (total_acceleration > max_acceleration) {
             max_acceleration = total_acceleration;
         }
 
-        printf("|%10.2lf  |%9.1lf  |%12.2lf  |%11.2lf  |\n",
-                time, altitude, total_acceleration, speed);
+        //printf("|%10.2lf  |%9.1lf  |%12.2lf  |%11.2lf  |\n",
+        //        time, altitude, total_acceleration, speed);
         old_speed = speed;
         speed = new_speed(speed, total_acceleration, delta_t);
 

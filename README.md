@@ -14,11 +14,16 @@ Windows usage or specificities about installation, I will be glad to add the
 information in this manual.
 
 # TODO
-- Incorporate more realistic drag equation
-- Calculate gravity as a function of altitude
-- Calculate air density as a function of altitude
+## Top priority
+- Create Struct for motor info
+
+## Soon
 - Parse command line arguments with parameters
 - Use real motor data (stored in `/data/motors`)
+
+## Sometimes
+- Calculate gravity as a function of altitude
+- Calculate air density as a function of altitude
 - Output simulation data to a .csv file
 
 # Installing

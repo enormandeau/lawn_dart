@@ -9,6 +9,7 @@ Usage:\n\
 mass = Mass of rocket (g)\n\
 diam = Diameter of body tube (mm)\n\
 cd   = Coefficient of penetration (0.6 to 0.9)\n\
-wind = Speed of wind (km/²)\n");
+wind = Speed of wind (km/²)\n\
+dt   = Step time for simulation (s)\n");
 }
 

@@ -13,15 +13,13 @@ int main(int argc, char *argv[]) {
         ret = 1;
     }
     else {
-        // TODO
-        // - Pass arvg[] directly to simulation?
-        // - Create struct to hold arguments?
-        double mass =     atof(argv[1]) / 1000;
-        double diam =     atof(argv[2]);
-        double cd =       atof(argv[3]);
-        double wind =     atof(argv[4]);
+        double mass =     atof(argv[1]) / 1000; // g -> Kg
+        double diam =     atof(argv[2]) / 1000; // mm -> m
+        double cd =       atof(argv[3]);        // unit less
+        double wind =     atof(argv[4]) / 3.6;  // km/h -> m/s
+        double dt =       atof(argv[5]);        // seconds
 
-        simulation(mass, diam, cd, wind);
+        simulation(mass, diam, cd, wind, dt);
         ret = 0;
     }
     return ret;

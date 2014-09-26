@@ -1,2 +1,2 @@
 
-void simulation( double mass, double diam, double cd, double wind);
+void simulation( double mass, double diam, double cd, double wind, double dt);
