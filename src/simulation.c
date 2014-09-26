@@ -38,7 +38,11 @@ void simulation( double mass, double diam, double cd,
         impulse = thrust(motor, time, delta_t);
         acc = acceleration(impulse, mass, altitude);
         if (acc < 0) direction = -1;
+<<<<<<< HEAD
         acc += direction * drag(cd, rho, speed, surface);
+=======
+        acc -= direction * drag(cd, rho, speed, surface);
+>>>>>>> fd97a0948ae466b9a03ddc8a2f4c2eb0f655be2c
         if (acc > max_acceleration) max_acceleration = acc;
         printf("|%10.2lf  |%9.1lf  |%12.2lf  |%11.2lf  |\n",
                 time, altitude, acc, speed);
