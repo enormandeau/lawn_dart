@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]) {
     int ret = 0;
 
-    if (argc <= 7) {
+    if (argc <= 5) {
         help();
         
         ret = 1;
@@ -19,12 +19,10 @@ int main(int argc, char *argv[]) {
         double mass =     atof(argv[1]);
         double diam =     atof(argv[2]);
         double cd =       atof(argv[3]);
-        double avgimp =   atof(argv[4]);
-        double totimp =   atof(argv[5]);
-        double wind =     atof(argv[6]);
-        double duration = atof(argv[7]);
+        double wind =     atof(argv[4]);
+        double duration = atof(argv[5]);
 
-        simulation(mass, diam, cd, avgimp, totimp, wind, duration);
+        simulation(mass, diam, cd, wind, duration);
         ret = 0;
     }
     return ret;

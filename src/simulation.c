@@ -3,17 +3,20 @@
 # include "physics.h"
 # include "motors.h"
 
-void simulation( double mass, double diam, double cd, double avgimp,
-        double totimp, double wind, double duration) {
+void simulation( double mass, double diam, double cd,
+        double wind, double duration) {
 
     long int counter = 0;
     double time;
     double acc;
     double impulse;
+    double direction = 1;
+    double rho = 1;
+    double surface = 3.14159 * diam*diam / 1000000;
     double altitude = 0;
     double speed = 0;
     double old_speed = speed;
-    double delta_t = 0.1;
+    double delta_t = 0.05;
 
     void print_banner(void) {
         printf("+------------+-----------+--------------+-------------+\n");
@@ -30,10 +33,12 @@ void simulation( double mass, double diam, double cd, double avgimp,
     int simulation_complete = 0;
 
     for (time=0; time<=duration; time+=delta_t) {
-        if (counter % 30 == 0) print_banner();
+        if (counter % (int) (1 / delta_t) == 0) print_banner();
         counter++;
         impulse = thrust(motor, time, delta_t);
         acc = acceleration(impulse, mass, altitude);
+        if (acc < 0) direction = -1;
+        acc += direction * drag(cd, rho, speed, surface);
         if (acc > max_acceleration) max_acceleration = acc;
         printf("|%10.2lf  |%9.1lf  |%12.2lf  |%11.2lf  |\n",
                 time, altitude, acc, speed);
