@@ -11,3 +11,6 @@ double drag(double cd, double rho, double speed, double surface);
 // G = f(altitude)
 double gravity(double altitude);
 
+// Thrust = f(motor, time)
+double thrust(double *motor, double time);
+

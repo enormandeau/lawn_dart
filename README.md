@@ -15,7 +15,7 @@ information in this manual.
 
 # TODO
 ## Top priority
-- Create Struct for motor info
+- Create Struct for motors
 
 ## Soon
 - Parse command line arguments with parameters

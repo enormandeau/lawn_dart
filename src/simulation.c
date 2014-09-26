@@ -47,7 +47,7 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
 
         counter++;
 
-        impulse = thrust(motor_c6, time, delta_t);
+        impulse = thrust(motor_b6, time);
         acc = acceleration(impulse, mass, altitude);
         grav = gravity(altitude);
         dra = drag(cd, rho, speed, surface) / mass;
@@ -93,7 +93,7 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
             break;
         }
     }
-    printf("#------------+-----------+--------------+-------------+\n");
+    //printf("#------------+-----------+--------------+-------------+\n");
 
     if (simulation_complete) {
         puts("# The simulation completed");

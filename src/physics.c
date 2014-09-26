@@ -33,3 +33,23 @@ double drag(double cd, double rho, double speed, double surface) {
 double acceleration(double force, double mass, double altitude) {
     return force / mass;
 }
+
+// Return thrust in Newtons
+double thrust(double *motor, double time) {
+    int index;
+    int max_index = 20;
+    double ret;
+    double motor_delta_t = 0.1;
+
+    index = (int) (time / motor_delta_t);
+
+    if (index < max_index) {
+        ret = motor[index];
+    }
+    else {
+        ret = 0;
+    }
+
+    return ret;
+}
+
