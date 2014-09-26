@@ -27,3 +27,6 @@ clean:
 	rm -f *~
 	rm -f $(TARGET)
 
+test:
+	./lawn_dart 100 20 0.6 0 1000
+

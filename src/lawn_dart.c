@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]) {
     int ret = 0;
 
-    if (argc <= 5) {
+    if (argc <= 4) {
         help();
         
         ret = 1;
@@ -16,13 +16,12 @@ int main(int argc, char *argv[]) {
         // TODO
         // - Pass arvg[] directly to simulation?
         // - Create struct to hold arguments?
-        double mass =     atof(argv[1]);
+        double mass =     atof(argv[1]) / 1000;
         double diam =     atof(argv[2]);
         double cd =       atof(argv[3]);
         double wind =     atof(argv[4]);
-        double duration = atof(argv[5]);
 
-        simulation(mass, diam, cd, wind, duration);
+        simulation(mass, diam, cd, wind);
         ret = 0;
     }
     return ret;
