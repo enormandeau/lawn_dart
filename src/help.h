@@ -1,1 +1,3 @@
-void help(void);
+
+void print_help(void);
+

@@ -1,21 +1,20 @@
 # Lawn Dart
 Model Rocketry Flight Simulator
 
-# About
-**Lawn Dart** is a crude but evolving rocket flight simulator. It is written in
-the [C language](http://en.wikipedia.org/wiki/C_\(programming_language\)) and
-is my first project in C. Its aims is primarily to be a fun project to learn
-more about C. I am, however, keen on getting feedback and ideas about how to
-turn this baby project into a more useful program.
+# About **Lawn Dart** is a crude but evolving rocket flight simulator that
+works in the terminal, that is, there is no graphical user interface. It is
+written in [C](http://en.wikipedia.org/wiki/C_\(programming_language\)) and is
+my first project in that language. Its aims is primarily to be a fun project to
+learn more about C. I am, however, keen on getting feedback and ideas about how
+to turn this baby project into a more useful program.
 
 **Lawn Dart** is developed with Linux and MacOSX systems in mind, although it
-should compile and work fine under Windows. If anybody would like to report on
-Windows usage or specificities about installation, I will be glad to add the
-information in this manual.
+should compile and work under Windows. If anybody would like to report on
+Windows usage or compilation specificities, I will be glad to add the
+information here.
 
 # TODO
 ## Top priority
-- Put variable declarations of simulation.c in simulation.h
 - Add printing.c and printing.h to contain all printing functions
 - Create Struct for motors
 

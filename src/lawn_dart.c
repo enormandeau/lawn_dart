@@ -2,13 +2,22 @@
 # include <stdlib.h>
 # include "simulation.h"
 # include "physics.h"
-# include "help.h"
+# include "messages.h"
 
 int main(int argc, char *argv[]) {
     int ret = 0;
 
     if (argc <= 4) {
-        help();
+        if (argc > 1) {
+            puts("--- Not enough parameters ---\n");
+        }
+        print_help();
+        
+        ret = 1;
+    }
+    else if (argc > 5) {
+        puts("--- Too many parameters ---\n");
+        print_help();
         
         ret = 1;
     }
@@ -17,7 +26,7 @@ int main(int argc, char *argv[]) {
         double diam =     atof(argv[2]) / 1000; // mm -> m
         double cd =       atof(argv[3]);        // unit less
         double wind =     atof(argv[4]) / 3.6;  // km/h -> m/s
-        double dt =       atof(argv[5]);        // seconds
+        double dt =       0.001; //atof(argv[5]);        // seconds
 
         simulation(mass, diam, cd, wind, dt);
         ret = 0;

@@ -2,6 +2,7 @@
 # include <string.h>
 # include "physics.h"
 # include "motors.h"
+# include "simulation.h"
 
 void simulation(double mass, double diam, double cd, double wind, double dt) {
 
@@ -47,7 +48,7 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
 
         counter++;
 
-        impulse = thrust(motor_b6, time);
+        impulse = thrust(motor_c6, time);
         acc = acceleration(impulse, mass, altitude);
         grav = gravity(altitude);
         dra = drag(cd, rho, speed, surface) / mass;
