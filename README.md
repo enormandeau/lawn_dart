@@ -15,6 +15,8 @@ information in this manual.
 
 # TODO
 ## Top priority
+- Put variable declarations of simulation.c in simulation.h
+- Add printing.c and printing.h to contain all printing functions
 - Create Struct for motors
 
 ## Soon
