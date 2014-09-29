@@ -15,12 +15,13 @@ information here.
 
 # TODO
 ## Top priority
-- Add printing.c and printing.h to contain all printing functions
-- Create Struct for motors
+- Assert that parameters have valid values
+- Parse command line arguments with parameters
 
 ## Soon
-- Parse command line arguments with parameters
 - Use real motor data (stored in `/data/motors`)
+- Create Struct for motors
+- Make physics models more accurate
 
 ## Sometimes
 - Calculate gravity as a function of altitude
