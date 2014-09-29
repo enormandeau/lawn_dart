@@ -9,14 +9,14 @@ int main(int argc, char *argv[]) {
 
     if (argc <= 4) {
         if (argc > 1) {
-            puts("--- Not enough parameters ---\n");
+            print_not_enough_parameters();
         }
         print_help();
         
         ret = 1;
     }
     else if (argc > 5) {
-        puts("--- Too many parameters ---\n");
+        print_too_many_parameters();
         print_help();
         
         ret = 1;

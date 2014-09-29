@@ -3,16 +3,12 @@
 # include "physics.h"
 # include "motors.h"
 # include "simulation.h"
+# include "messages.h"
 
 void simulation(double mass, double diam, double cd, double wind, double dt) {
 
     long int counter = 0;
-    double time;
-    double acc;
-    double grav;
-    double dra;
-    double total_acceleration;
-    double impulse;
+    double time, acc, grav, dra, total_acceleration, impulse;
     int direction = 1;
     double rho = 1.225; // kg/m³
     double radius = diam / 2.0;
@@ -21,13 +17,6 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
     double speed = 0;
     double old_speed = 0;
     double delta_t = dt;
-
-    void print_banner(void) {
-        //printf("+------------+-----------+--------------+-------------+\n");
-        //printf("|  Time (s)  |  Alt (m)  | Accel (m/s2) | Speed (m/s) |\n");
-        //printf("+------------+-----------+--------------+-------------+\n");
-        printf("#  Time (s)  |  Alt (m)  | Accel (m/s2) | Speed (m/s) |\n");
-    }
 
     // Keep stats about flight
     double max_altitude = 0;
@@ -41,12 +30,9 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
     int simulation_complete = 0;
 
     for (time=0; ; time+=delta_t) {
-        if (counter % (int) (1 / delta_t) == 0) {
-            ;
+        if (counter++ % (int) (1 / delta_t) == 0) {
             //print_banner();
         }
-
-        counter++;
 
         impulse = thrust(motor_c6, time);
         acc = acceleration(impulse, mass, altitude);
@@ -58,8 +44,8 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
         }
 
         total_acceleration = acc - grav - direction * dra;
-        //printf("Acc: %6.2lf, Grav: %6.2lf, Drag: %6.2lf\n",
-        //        acc, grav, direction * dra);
+
+        //print_in_flight_statistics(time, altitude, total_acceleration, speed);
 
         if (total_acceleration < 0 && !burnout_reached) {
             burnout_time = time;
@@ -70,8 +56,6 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
             max_acceleration = total_acceleration;
         }
 
-        //printf("|%10.2lf  |%9.1lf  |%12.2lf  |%11.2lf  |\n",
-        //        time, altitude, total_acceleration, speed);
         old_speed = speed;
         speed = new_speed(speed, total_acceleration, delta_t);
 
@@ -94,25 +78,11 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
             break;
         }
     }
-    //printf("#------------+-----------+--------------+-------------+\n");
 
-    if (simulation_complete) {
-        puts("# The simulation completed");
-        puts("#-------------------------");
-    }
-    else {
-        puts(">>> WARNING! The simulation did not complete! <<<");
-        puts(">>> Increase the maximum simulation duration. <<<");
-        puts("#------------------------------------------------");
-    }
+    if (simulation_complete) print_simulation_completed();
+    else print_simulation_not_completed();
 
-    printf("# Flight duration:  %6.2lf s\n", flight_time);
-    printf("# Burnout time:     %6.2lf s\n", burnout_time);
-    printf("# Coast time:       %6.2lf s\n", coast_time);
-    printf("# Time to apogee:   %6.2lf s\n", apogee_time);
-    printf("# Falling time:     %6.2lf s\n", flight_time - apogee_time);
-    printf("# Max altitude:     %6.2lf m\n", max_altitude);
-    printf("# Max speed:        %6.2lf m/s\n", max_speed);
-    printf("# Max acceleration: %6.2lf G\n", max_acceleration / 9.81);
+    print_post_flight_statistics(flight_time, burnout_time, coast_time,
+            apogee_time, max_altitude, max_speed, max_acceleration);
 }
 
