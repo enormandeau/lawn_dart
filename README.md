@@ -1,7 +1,8 @@
 # Lawn Dart
 Model Rocketry Flight Simulator
 
-# About **Lawn Dart** is a crude but evolving rocket flight simulator that
+# About
+**Lawn Dart** is a crude but evolving rocket flight simulator that
 works in the terminal, that is, there is no graphical user interface. It is
 written in [C](http://en.wikipedia.org/wiki/C_\(programming_language\)) and is
 my first project in that language. Its aims is primarily to be a fun project to
