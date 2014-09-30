@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
         simulation(mass, diam, cd, wind, dt);
         ret = 0;
     }
+
     return ret;
 }
 

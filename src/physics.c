@@ -1,14 +1,17 @@
-// Initial speed (m/s)
+// New speed (m/s)
 // ---
+// Initial speed (m/s)
 // Acceleration (m/s²)
 // Delta t (s)
-double new_speed(double initial_speed, double acceleration, double delta_t) {
+double new_speed(double initial_speed,
+                 double acceleration,
+                 double delta_t) {
     return initial_speed + acceleration * delta_t;
 }
 
-// Altitude (m)
-// ---
 // Gravity (m/s²)
+// ---
+// Altitude (m)
 double gravity(double altitude) {
     return 9.81;
 }
@@ -19,7 +22,10 @@ double gravity(double altitude) {
 // Rho = Air density (~1.225 kg/m³)
 // Speed = Air speed (m/s)
 // Surface = Front rocket surface (m²)
-double drag(double cd, double rho, double speed, double surface) {
+double drag(double cd,
+            double rho,
+            double speed,
+            double surface) {
     return 0.5 * cd * rho * speed * speed * surface;
 }
 
@@ -30,12 +36,18 @@ double drag(double cd, double rho, double speed, double surface) {
 //
 // F = m*a
 // a = F/m
-double acceleration(double force, double mass, double altitude) {
+double acceleration(double force,
+                    double mass,
+                    double altitude) {
     return force / mass;
 }
 
-// Return thrust in Newtons
-double thrust(double *motor, double time) {
+// Thrust (N)
+// ---
+// Motor (char[])
+// Time (s)
+double thrust(double *motor,
+              double time) {
     int index;
     int max_index = 20;
     double ret;
