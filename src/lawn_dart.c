@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include "simulation.h"
 # include "physics.h"
 # include "messages.h"
@@ -8,10 +9,18 @@ int main(int argc, char *argv[]) {
     int ret = 0;
 
     if (argc <= 4) {
-        if (argc > 1) {
-            print_not_enough_parameters();
+        if (argc == 1) {
+            print_help();
         }
-        print_help();
+        if (argc > 1) {
+            if (strcmp(argv[1], "-l") == 0 || strcmp(argv[1], "--list_motors") == 0) {
+                print_motor_list();
+            }
+            else {
+                print_not_enough_parameters();
+                print_help();
+            }
+        }
         
         ret = 1;
     }

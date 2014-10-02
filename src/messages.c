@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include "motors.h"
 
 void print_help(void) {
     puts("Lawn Dart: Model Rocket Flight Simulator\n\
@@ -56,3 +57,8 @@ void print_post_flight_statistics(double flight_time, double burnout_time,
     printf("# Max speed:        %6.2lf m/s\n", max_speed);
     printf("# Max acceleration: %6.2lf G\n", max_acceleration / 9.81);
 }
+
+void print_motor_list() {
+    puts(motor_list);
+}
+

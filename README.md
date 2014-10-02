@@ -16,19 +16,21 @@ information here.
 
 # TODO
 ## Top priority
+- Create Struct for motors
+- Use real motor data (stored in `/data/motors`)
 - Revise simulation.c for errors
 - Revise physics.c to improve accuracy
-- Assert that parameters have valid values
-- Parse command line arguments with parameters
 
 ## Soon
-- Use real motor data (stored in `/data/motors`)
-- Create Struct for motors
+- Assert that parameters have valid values
+- Parse command line arguments with parameters
 
 ## Sometimes
 - Calculate gravity as a function of altitude
 - Calculate air density as a function of altitude
 - Output simulation data to a .csv file
+- Add angle of attack drag with wind and gusts
+- Do multiple simulations per run to assess wind effect
 
 # Installing
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
