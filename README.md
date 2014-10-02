@@ -16,16 +16,15 @@ information here.
 
 # TODO
 ## Top priority
-- Create Struct for motors
 - Use real motor data (stored in `/data/motors`)
-- Revise simulation.c for errors
-- Revise physics.c to improve accuracy
 
 ## Soon
 - Assert that parameters have valid values
 - Parse command line arguments with parameters
 
 ## Sometimes
+- Revise simulation.c for errors
+- Revise physics.c to improve accuracy
 - Calculate gravity as a function of altitude
 - Calculate air density as a function of altitude
 - Output simulation data to a .csv file

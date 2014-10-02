@@ -1,46 +1,19 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include "simulation.h"
-# include "physics.h"
 # include "messages.h"
+# include "argparse.h"
+# include "physics.h"
+# include "simulation.h"
 
 int main(int argc, char *argv[]) {
-    int ret = 0;
+    double delta_t = 0.001;
 
-    if (argc <= 4) {
-        if (argc == 1) {
-            print_help();
-        }
-        if (argc > 1) {
-            if (strcmp(argv[1], "-l") == 0 || strcmp(argv[1], "--list_motors") == 0) {
-                print_motor_list();
-            }
-            else {
-                print_not_enough_parameters();
-                print_help();
-            }
-        }
-        
-        ret = 1;
-    }
-    else if (argc > 5) {
-        print_too_many_parameters();
-        print_help();
-        
-        ret = 1;
-    }
-    else {
-        double mass =     atof(argv[1]) / 1000; // g -> Kg
-        double diam =     atof(argv[2]) / 1000; // mm -> m
-        double cd =       atof(argv[3]);        // unit less
-        double wind =     atof(argv[4]) / 3.6;  // km/h -> m/s
-        double dt =       0.001; //atof(argv[5]);        // seconds
-
-        simulation(mass, diam, cd, wind, dt);
-        ret = 0;
+    struct Args args = parse_arguments(argc, argv);
+    if (args.run_simulation) {
+        simulation(args.mass, args.diam, args.cd, args.wind, delta_t);
     }
 
-    return ret;
+    return 0;
 }
 

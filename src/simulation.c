@@ -5,7 +5,7 @@
 # include "simulation.h"
 # include "messages.h"
 
-void simulation(double mass, double diam, double cd, double wind, double dt) {
+void simulation(double mass, double diam, double cd, double wind, double delta_t) {
 
     long int counter = 0;
     double time, acc, grav, dra, total_acceleration, impulse;
@@ -16,7 +16,6 @@ void simulation(double mass, double diam, double cd, double wind, double dt) {
     double altitude = 0;
     double speed = 0;
     double old_speed = 0;
-    double delta_t = dt;
 
     // Keep stats about flight
     double max_altitude = 0;
