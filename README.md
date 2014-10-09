@@ -9,10 +9,9 @@ project in that language. Its aims is primarily to be a fun project to learn
 more about C. I am, however, keen on getting feedback and ideas about how to
 turn this baby project into a more useful program.
 
-**Lawn Dart** is developed with Linux and MacOSX systems in mind, although it
-should compile and work under Windows. If anybody would like to report on
-Windows usage or compilation specificities, I will be glad to add the
-information here.
+**Lawn Dart** is developed with Linux systems in mind. It may compile on MacOSX
+or Windows, although this may require tweaking the Makefile in order to point
+to the installation of the `argtable` library (see installation section below).
 
 # TODO
 ## Top priority
@@ -50,6 +49,11 @@ information here.
 - Do multiple simulations per run to assess wind effect
 
 # Installing
+
+## Depenencies
+In order to compile, you will need to install
+[argtable](http://argtable.sourceforge.net/) from source.
+
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
 simply run:
 

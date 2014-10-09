@@ -6,9 +6,9 @@
 # include "physics.h"
 # include "simulation.h"
 
-int main(int argc, char *argv[]) {
-    double delta_t = 0.001;
+# define delta_t 0.001
 
+int main(int argc, char *argv[]) {
     struct Args args = parse_arguments(argc, argv);
     if (args.run_simulation) {
         simulation(args.mass, args.diam, args.cd, args.wind, delta_t);
