@@ -7,7 +7,7 @@
 # include "messages.h"
 
 struct Args parse_arguments(int argc, char *argv[]) {
-    // New argument parsing using argtable2
+
     struct Args args;
     args.mass = 0.1;
     args.diam = 0.042;
@@ -50,6 +50,7 @@ struct Args parse_arguments(int argc, char *argv[]) {
     return args;
 }
 
+/*
 struct Args parse_arguments_old(int argc, char *argv[]) {
     struct Args args;
     args.mass = 0.0;
@@ -87,4 +88,5 @@ struct Args parse_arguments_old(int argc, char *argv[]) {
 
     return args;
 }
+*/
 
