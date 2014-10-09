@@ -7,6 +7,6 @@ struct Args {
     double cd;
     double wind;
     int run_simulation;
-    char motor[1000];
+    char motor[100];
 };
 

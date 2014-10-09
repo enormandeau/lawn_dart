@@ -1,10 +1,32 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+
+# include "argtable2.h"
+
 # include "argparse.h"
 # include "messages.h"
 
 struct Args parse_arguments(int argc, char *argv[]) {
+    // New argument parsing using argtable2
+    struct Args args;
+    args.mass = 0.1;
+    args.diam = 0.042;
+    args.cd =   0.8;
+    args.wind = 0.0;
+    args.run_simulation = 1;
+
+    puts("inside new parse_arguments");
+
+    // parse arguments
+    struct arg_lit *list = arg_lit0("lL", "list", "list_files");
+
+    // act based on arguments (-h, -l...)
+
+    return args;
+}
+
+struct Args parse_arguments_old(int argc, char *argv[]) {
     struct Args args;
     args.mass = 0.0;
     args.diam = 0.0;
@@ -17,7 +39,8 @@ struct Args parse_arguments(int argc, char *argv[]) {
             print_help();
         }
         if (argc > 1) {
-            if (strcmp(argv[1], "-l") == 0 || strcmp(argv[1], "--list_motors") == 0) {
+            if (strcmp(argv[1], "-l") == 0 ||
+                    strcmp(argv[1], "--list_motors") == 0) {
                 print_motor_list();
             }
             else {

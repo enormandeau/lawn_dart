@@ -1,7 +1,7 @@
 TARGET = lawn_dart
 LIBS = -lm
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -L/usr/local/lib -largtable2
 
 .PHONY: build all clean
 
