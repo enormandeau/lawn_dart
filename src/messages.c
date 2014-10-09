@@ -30,14 +30,14 @@ void print_banner(void) {
 }
 
 void print_simulation_completed(void) {
-    puts("# The simulation completed");
-    puts("#-------------------------");
+    puts("The simulation completed");
+    puts("-------------------------");
 }
 
 void print_simulation_not_completed(void) {
     puts(">>> WARNING! The simulation did not complete! <<<");
     puts(">>> Increase the maximum simulation duration. <<<");
-    puts("#------------------------------------------------");
+    puts("------------------------------------------------");
 }
 
 void print_in_flight_statistics(double time, double altitude,
@@ -49,14 +49,15 @@ void print_in_flight_statistics(double time, double altitude,
 void print_post_flight_statistics(double flight_time, double burnout_time,
         double coast_time, double apogee_time, double max_altitude,
         double max_speed, double max_acceleration) {
-    printf("# Flight duration:  %6.2lf s\n", flight_time);
-    printf("# Burnout time:     %6.2lf s\n", burnout_time);
-    printf("# Coast time:       %6.2lf s\n", coast_time);
-    printf("# Time to apogee:   %6.2lf s\n", apogee_time);
-    printf("# Falling time:     %6.2lf s\n", flight_time - apogee_time);
-    printf("# Max altitude:     %6.2lf m\n", max_altitude);
-    printf("# Max speed:        %6.2lf m/s\n", max_speed);
-    printf("# Max acceleration: %6.2lf G\n", max_acceleration / 9.81);
+    printf("Flight duration:  %6.2lf s\n", flight_time);
+    printf("Burnout time:     %6.2lf s\n", burnout_time);
+    printf("Coast time:       %6.2lf s\n", coast_time);
+    printf("Time to apogee:   %6.2lf s\n", apogee_time);
+    printf("Falling time:     %6.2lf s\n", flight_time - apogee_time);
+    printf("Max altitude:     %6.2lf m\n", max_altitude);
+    printf("Max speed:        %6.2lf m/s\n", max_speed);
+    printf("Max acceleration: %6.2lf G\n", max_acceleration / 9.81);
+    puts("");
 }
 
 void print_motor_list() {
