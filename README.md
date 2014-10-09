@@ -2,12 +2,12 @@
 Model Rocketry Flight Simulator
 
 # About
-**Lawn Dart** is a crude but evolving rocket flight simulator that
-works in the terminal, that is, there is no graphical user interface. It is
-written in [C](http://en.wikipedia.org/wiki/C_\(programming_language\)) and is
-my first project in that language. Its aims is primarily to be a fun project to
-learn more about C. I am, however, keen on getting feedback and ideas about how
-to turn this baby project into a more useful program.
+**Lawn Dart** is a crude but evolving rocket flight simulator that works in the
+terminal, that is, there is no graphical user interface. It is written in
+[C](http://en.wikipedia.org/wiki/C_\(programming_language\)) and is my first
+project in that language. Its aims is primarily to be a fun project to learn
+more about C. I am, however, keen on getting feedback and ideas about how to
+turn this baby project into a more useful program.
 
 **Lawn Dart** is developed with Linux and MacOSX systems in mind, although it
 should compile and work under Windows. If anybody would like to report on
@@ -17,6 +17,24 @@ information here.
 # TODO
 ## Top priority
 - Use real motor data (stored in `/data/motors`)
+  - Read file line by line:
+        if (fgets(line, BUFFER_SIZE, stdin) != NULL) {
+           /* ... */
+        }
+  - Discard lines starting with ';'
+  - Split other lines:
+        sscanf(time, "%d:%d", &minutes, &seconds);
+  - First data line contains:
+    - name
+    - diameter (mm)
+    - length (mm)
+    - possible delays (s)
+    - propellant mass (kg)
+    - initial motor mass (kg)
+    - company
+  - Other lines contain:
+    - time (s)
+    - thrust (N)
 
 ## Soon
 - Assert that parameters have valid values
