@@ -54,6 +54,12 @@ to the installation of the `argtable` library (see installation section below).
 In order to compile, you will need to install
 [argtable](http://argtable.sourceforge.net/) from source.
 
+You will have to add the following to your `~/.profile` or `~/.bashrc` file:
+
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+```
+
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
 simply run:
 

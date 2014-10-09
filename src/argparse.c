@@ -1,8 +1,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-
-# include <argtable2.h>
+# include <argtable2.h> // install from http://argtable.sourceforge.net/
 
 # include "argparse.h"
 # include "messages.h"
@@ -14,14 +13,39 @@ struct Args parse_arguments(int argc, char *argv[]) {
     args.diam = 0.042;
     args.cd =   0.8;
     args.wind = 0.0;
-    args.run_simulation = 1;
+    args.run_simulation = 0;
 
-    puts("inside new parse_arguments");
-
-    // parse arguments
+    // Create argument list
+    struct arg_lit *help = arg_lit0("h", "help", "Printing help");
     struct arg_lit *list_motors = arg_lit0("l", "list_motors", "List motors");
+    struct arg_end *end = arg_end(20);
 
-    // act based on arguments (-h, -l...)
+    // Prepare argtable
+    void* argtable[] = {help, list_motors, end};
+    const char* progname = "Lawn Dart";
+    int nerrors;
+    int exitcode=0;
+
+    // Verify the argtable[] entries were allocated sucessfully
+    if (arg_nullcheck(argtable) != 0) {
+        // NULL entries were detected, some allocations must have failed
+        printf("%s: insufficient memory\n",progname);
+        exitcode=1;
+    }
+
+    // Parse the command line as defined by argtable[]
+    nerrors = arg_parse(argc, argv, argtable);
+
+    // Check for --help
+    if (help->count > 0) {
+        puts("Help needed");
+    }
+    else if (list_motors->count >0) {
+        print_motor_list();
+    }
+    else {
+        args.run_simulation = 1;
+    }
 
     return args;
 }
