@@ -6,5 +6,6 @@ char motor_list[10000];
 struct Motor {
     double time;
     double thrust;
+    int burned_out;
 };
 
