@@ -2,7 +2,7 @@
 # include <stdlib.h>
 # include <string.h>
 
-# include "argtable2.h"
+# include <argtable2.h>
 
 # include "argparse.h"
 # include "messages.h"
@@ -19,7 +19,7 @@ struct Args parse_arguments(int argc, char *argv[]) {
     puts("inside new parse_arguments");
 
     // parse arguments
-    struct arg_lit *list = arg_lit0("lL", "list", "list_files");
+    struct arg_lit *list_motors = arg_lit0("l", "list_motors", "List motors");
 
     // act based on arguments (-h, -l...)
 
