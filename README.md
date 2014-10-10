@@ -15,6 +15,10 @@ to the installation of the `argtable` library (see installation section below).
 
 # TODO
 ## Top priority
+- Parse command line arguments with parameters
+- Assert that parameters have valid values
+
+## Soon
 - Use real motor data (stored in `/data/motors`)
   - Read file line by line:
         if (fgets(line, BUFFER_SIZE, stdin) != NULL) {
@@ -35,10 +39,6 @@ to the installation of the `argtable` library (see installation section below).
     - time (s)
     - thrust (N)
 
-## Soon
-- Assert that parameters have valid values
-- Parse command line arguments with parameters
-
 ## Sometimes
 - Revise simulation.c for errors
 - Revise physics.c to improve accuracy
@@ -46,44 +46,53 @@ to the installation of the `argtable` library (see installation section below).
 - Calculate air density as a function of altitude
 - Output simulation data to a .csv file
 - Add angle of attack drag with wind and gusts
-- Do multiple simulations per run to assess wind effect
+- Assess effect of wind and gusts (multiple simulations per run)
 
 # Installing
 
 ## Depenencies
 In order to compile, you will need to install
-[argtable](http://argtable.sourceforge.net/) from source.
+[argtable](http://argtable.sourceforge.net/) from source:
+
+```bash
+    wget http://prdownloads.sourceforge.net/argtable/argtable2-13.tar.gz
+    tar xvfz argtable2-13.tar.gz
+    cd argtable2-13
+    ./configure
+    make
+    sudo make install
+```
 
 You will have to add the following to your `~/.profile` or `~/.bashrc` file:
 
-```
+```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 
 To use **Lawn Dart**, you will need to compile it. From the `src` folder,
 simply run:
 
-```
+```bash
 make
 ```
 
 to compile the program. The `lawn_dart` executable will be
 created. To install it to `/usr/local/bin`, run:
 
-```
+```bash
 sudo make install
 ```
 
 # Usage
 To get usage help, launch the executable without options, either
 
-```
+```bash
 ./lawn_dart
 ```
 
 or, if you installed it system wide, simply
 
-```
+```bash
 lawn_dart
 ```
 
