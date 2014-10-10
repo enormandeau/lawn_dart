@@ -55,12 +55,12 @@ In order to compile, you will need to install
 [argtable](http://argtable.sourceforge.net/) from source:
 
 ```bash
-    wget http://prdownloads.sourceforge.net/argtable/argtable2-13.tar.gz
-    tar xvfz argtable2-13.tar.gz
-    cd argtable2-13
-    ./configure
-    make
-    sudo make install
+wget http://prdownloads.sourceforge.net/argtable/argtable2-13.tar.gz
+tar xvfz argtable2-13.tar.gz
+cd argtable2-13
+./configure
+make
+sudo make install
 ```
 
 You will have to add the following to your `~/.profile` or `~/.bashrc` file:
