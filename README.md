@@ -3,15 +3,16 @@ Model Rocketry Flight Simulator
 
 # About
 **Lawn Dart** is a crude but evolving rocket flight simulator that works in the
-terminal, that is, there is no graphical user interface. It is written in
+terminal. That is, there is no graphical user interface. It is written in
 [C](http://en.wikipedia.org/wiki/C_\(programming_language\)) and is my first
-project in that language. Its aims is primarily to be a fun project to learn
-more about C. I am, however, keen on getting feedback and ideas about how to
-turn this baby project into a more useful program.
+project in that language. It is a fun project to learn started to help me learn
+more about C.
 
 **Lawn Dart** is developed with Linux systems in mind. It may compile on MacOSX
 or Windows, although this may require tweaking the Makefile in order to point
 to the installation of the `argtable` library (see installation section below).
+If you install lawn_dart on MacOSX or Windows, you can send me the installation
+procedure and I will add it to this document.
 
 # TODO
 ## Top priority
