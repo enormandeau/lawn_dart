@@ -2,16 +2,16 @@
 # include "motors.h"
 
 void print_help(void) {
-    puts("Lawn Dart: Model Rocket Flight Simulator\n\
+    puts("Example usages:\n\
 \n\
-Usage:\n\
-    lawn_dart mass diam cd wind motor\n\
+Running a simulation:\n\
+    lawn_dart -m 100 -d 42 -c 0.8 -w 2 -M Estes_B6\n\
 \n\
-mass = Mass of rocket (g)\n\
-diam = Diameter of body tube (mm)\n\
-cd   = Coefficient of penetration (0.6 to 0.9)\n\
-wind = Speed of wind (km/²)\n\
-motor = Motor name (use -l or --list_motors to see available motors)\n");
+Listing available motors (-l, --list_motors):\n\
+    lawn_dart -l\n\
+\n\
+Getting this help (-h, --help):\n\
+    lawn_dart -h\n");
 }
 
 void print_not_enough_parameters(void) {

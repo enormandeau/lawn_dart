@@ -18,6 +18,7 @@ procedure and I will add it to this document.
 ## Top priority
 - Parse command line arguments with parameters
 - Assert that parameters have valid values
+- Move to argtable3 (on GitHub)
 
 ## Soon
 - Use real motor data (stored in `/data/motors`)
