@@ -16,9 +16,10 @@ procedure and I will add it to this document.
 
 # TODO
 ## Top priority
-- Parse command line arguments with parameters
 - Assert that parameters have valid values
-- Move to argtable3 (on GitHub)
+- Refine parameter parsing logic
+- Use [argtable3](https://github.com/argtable/argtable3)
+  - Include in project files directy?
 
 ## Soon
 - Use real motor data (stored in `/data/motors`)
@@ -27,8 +28,6 @@ procedure and I will add it to this document.
            /* ... */
         }
   - Discard lines starting with ';'
-  - Split other lines:
-        sscanf(time, "%d:%d", &minutes, &seconds);
   - First data line contains:
     - name
     - diameter (mm)
@@ -37,9 +36,8 @@ procedure and I will add it to this document.
     - propellant mass (kg)
     - initial motor mass (kg)
     - company
-  - Other lines contain:
-    - time (s)
-    - thrust (N)
+  - Split other lines:
+        sscanf(line, "%d %d", &time, &thrust);
 
 ## Sometimes
 - Revise simulation.c for errors
