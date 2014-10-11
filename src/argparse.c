@@ -36,17 +36,17 @@ struct Args parse_arguments(int argc, char *argv[]) {
     void *argtable[] = {mass, diam, cd, wind, motor, help, list_motors, end};
     const char *progname = "lawn_dart";
     int nerrors;
-    int exitcode=0;
 
     // Verify the argtable[] entries were allocated sucessfully
     if (arg_nullcheck(argtable) != 0) {
         // NULL entries were detected, some allocations must have failed
         printf("%s: insufficient memory\n",progname);
-        exitcode=1;
     }
 
     // Parse the command line as defined by argtable[]
     nerrors = arg_parse(argc, argv, argtable);
+
+    if (!nerrors) return args;
 
     // Check for --help
     if (help->count > 0 || argc == 1) { // TODO or if there are no arguments
@@ -62,9 +62,6 @@ struct Args parse_arguments(int argc, char *argv[]) {
         print_motor_list();
     }
     else {
-        //printf("%lf, %lf, %lf, %lf, %s\n",
-        //    mass->dval[0], diam->dval[0], cd->dval[0],
-        //    wind->dval[0], motor->sval[0]);
         args.mass = mass->dval[0] / 1000.0;
         args.diam = diam->dval[0] / 1000.0;
         args.cd =   cd->dval[0];

@@ -1,6 +1,7 @@
-double motor_a8[1000];
-double motor_b6[1000];
-double motor_c6[1000];
+
+double motor_a8[20];
+double motor_b6[20];
+double motor_c6[20];
 char motor_list[10000];
 
 struct Motor {

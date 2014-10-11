@@ -1,5 +1,8 @@
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
+
+# include "motors.h"
 
 double motor_a8[] = {2,8,12,10,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 double motor_b6[] = {2,8,12,10,7,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0};
@@ -27,3 +30,4 @@ Quest_B4,            Quest_C6,          Quest_D5_1\n\
 Quest_D5_2,          Quest_D5,          Quest_D8\n\
 Quest_Micro_Maxx_1,  Quest_Micro_Maxx,  RV_E15\n\
 RV_F72,              RV_G55";
+
