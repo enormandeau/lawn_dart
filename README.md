@@ -16,12 +16,6 @@ procedure and I will add it to this document.
 
 # TODO
 ## Top priority
-- Assert that parameters have valid values
-- Refine parameter parsing logic
-- Use [argtable3](https://github.com/argtable/argtable3)
-  - Include in project files directy?
-
-## Soon
 - Use real motor data (stored in `/data/motors`)
   - Read file line by line:
         if (fgets(line, BUFFER_SIZE, stdin) != NULL) {
@@ -38,6 +32,10 @@ procedure and I will add it to this document.
     - company
   - Split other lines:
         sscanf(line, "%d %d", &time, &thrust);
+
+## Soon
+- Use [argtable3](https://github.com/argtable/argtable3)
+  - Include in project files directy?
 
 ## Sometimes
 - Revise simulation.c for errors

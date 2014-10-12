@@ -24,7 +24,7 @@ struct Args parse_arguments(int argc, char *argv[]) {
             "Drag coefficient of rocket");
     struct arg_dbl *wind = arg_dbl1("w", "wind", "<float>",
             "Wind speed (km/h)");
-    struct arg_str *motor = arg_str1("M", "motor", "<str>",
+    struct arg_str *motor = arg_str1("M", "motor", "<string>",
             "Motor (use '-l' or '--list_motors' to see list");
 
     // Help options
@@ -46,8 +46,6 @@ struct Args parse_arguments(int argc, char *argv[]) {
     // Parse the command line as defined by argtable[]
     nerrors = arg_parse(argc, argv, argtable);
 
-    if (!nerrors) return args;
-
     // Check for --help
     if (help->count > 0 || argc == 1) { // TODO or if there are no arguments
         printf("Lawn Dart: A Model Rocket Flight Simulator\n\n");
@@ -62,11 +60,35 @@ struct Args parse_arguments(int argc, char *argv[]) {
         print_motor_list();
     }
     else {
-        args.mass = mass->dval[0] / 1000.0;
-        args.diam = diam->dval[0] / 1000.0;
-        args.cd =   cd->dval[0];
-        args.wind = wind->dval[0] / 3.6;
-        args.run_simulation = 1;
+        // If all required options have been specified
+        if (!nerrors) {
+            // Get options from params
+            args.mass = mass->dval[0] / 1000.0;
+            args.diam = diam->dval[0] / 1000.0;
+            args.cd =   cd->dval[0];
+            args.wind = wind->dval[0] / 3.6;
+
+            // Assert proper values
+            int all_params_ok = 1;
+            if (args.mass < 0.001 || args.mass > 1000.0) all_params_ok = 0;
+            if (args.diam < 0.001 || args.diam > 1.0) all_params_ok = 0;
+            if (args.cd < 0.0 || args.cd > 1.0) all_params_ok = 0;
+            if (args.wind < 0.0 || args.wind > 100.0) all_params_ok = 0;
+
+            // Confirm to run simulation
+            if (all_params_ok) {
+                args.run_simulation = 1;
+            }
+        }
+        else {
+            puts("--- Missing required parameters ---\n");
+            printf("%s", progname);
+            arg_print_syntax(stdout, argtable,"\n");
+            puts("");
+            arg_print_glossary(stdout, argtable,"  %-25s %s\n");
+            puts("");
+            print_help();
+        }
     }
 
     return args;
