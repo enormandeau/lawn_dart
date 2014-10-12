@@ -47,7 +47,7 @@ struct Args parse_arguments(int argc, char *argv[]) {
     nerrors = arg_parse(argc, argv, argtable);
 
     // Check for --help
-    if (help->count > 0 || argc == 1) { // TODO or if there are no arguments
+    if (help->count > 0 || argc == 1) {
         printf("Lawn Dart: A Model Rocket Flight Simulator\n\n");
         printf("%s", progname);
         arg_print_syntax(stdout, argtable,"\n");

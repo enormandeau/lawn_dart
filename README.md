@@ -19,7 +19,7 @@ procedure and I will add it to this document.
 - Use real motor data (stored in `/data/motors`)
   - Read file line by line:
         if (fgets(line, BUFFER_SIZE, stdin) != NULL) {
-           /* ... */
+           ; /* ... */
         }
   - Discard lines starting with ';'
   - First data line contains:
