@@ -93,8 +93,8 @@ run:
 
 # Usage
 
-To get usage help, launch the executable without options or with **`-h`** If
-you installed it system wide :
+To get usage help, launch the executable without options or with the `-h`
+option. If you installed it system wide :
 
 ```bash
     lawn_dart
@@ -109,5 +109,5 @@ Otherwise, from the **`src`** folder of the lawn_dart directory :
 # License
 
 This project is covered by the GPLv3 license. Read the LICENSE file for
-information about the license affecting the pipeline.
+more information.
 
