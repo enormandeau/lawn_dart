@@ -7,26 +7,26 @@
 
 void simulation(double mass, double diam, double cd, double wind, double delta_t) {
 
-    long int counter = 0;
-    double time, acc, grav, dra, total_acceleration, impulse;
-    int direction = 1;
-    double rho = 1.225; // kg/m³
-    double radius = diam / 2.0;
-    double surface = 3.14159 * radius * radius;
-    double altitude = 0;
-    double speed = 0;
-    double old_speed = 0;
+    long    counter = 0;
+    double  time, acc, grav, dra, total_acceleration, impulse;
+    int     direction = 1;
+    double  rho = 1.225; // kg/m³
+    double  radius = diam / 2.0;
+    double  surface = 3.14159 * radius * radius;
+    double  altitude = 0;
+    double  speed = 0;
+    double  old_speed = 0;
 
     // Keep stats about flight
-    double max_altitude = 0;
-    double max_speed = 0;
-    double max_acceleration = 0;
-    double flight_time = 0;
-    double apogee_time = 0;
-    double burnout_time = 0;
-    double coast_time = 0;
-    int burnout_reached = 0;
-    int simulation_complete = 0;
+    double  max_altitude = 0;
+    double  max_speed = 0;
+    double  max_acceleration = 0;
+    double  flight_time = 0;
+    double  apogee_time = 0;
+    double  burnout_time = 0;
+    double  coast_time = 0;
+    int     burnout_reached = 0;
+    int     simulation_complete = 0;
 
     for (time=0; ; time+=delta_t) {
         if (counter++ % (int) (1 / delta_t) == 0) {

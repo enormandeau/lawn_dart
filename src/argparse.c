@@ -2,6 +2,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <argtable2.h> // install from http://argtable.sourceforge.net/
+                        // see README.md for instructions
 
 # include "argparse.h"
 # include "messages.h"
